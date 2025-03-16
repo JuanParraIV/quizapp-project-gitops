@@ -1,0 +1,16 @@
+name: mainlb
+namespace: quiz
+annotations:
+  scheme: internet-facing
+  targetType: ip
+  listenPorts: '[{"HTTP": 80}]'
+ingressClassName: alb
+host: quizapp.jotamario.lat
+backend:
+  path: /api/questions
+  serviceName: backend-service
+  servicePort: 5000
+frontend:
+  path: /
+  serviceName: frontend-service
+  servicePort: 3000

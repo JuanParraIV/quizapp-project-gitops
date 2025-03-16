@@ -1,0 +1,43 @@
+replicaCount: 3
+namespace: quiz
+secret:
+  name: quizapp-backend-secrets
+  data:
+    MONGO_URI: bW9uZ29kYjovL2FkbWludXNlcjpwYXNzd29yZDEyM0AxOTIuMTY4LjEuNDM6MzIwMDEvCg==
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 25%
+image:
+  repository: juanparraiv/quizapp-backend
+  tag: "1.0.0"
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5000
+  nodePort: 32004
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 5000
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+  successThreshold: 1
+readinessProbe:
+  httpGet:
+    path: /
+    port: 5000
+  initialDelaySeconds: 10
+  periodSeconds: 5
+  timeoutSeconds: 5
+  failureThreshold: 3
+  successThreshold: 1
+
+#secretdocker:
+#  name: regcred-backend

@@ -1,0 +1,26 @@
+replicaCount: 2
+namespace: quiz
+config:
+  name: quizapp-frontend-config
+  data:
+    VITE_REACT_APP_API_URL: "http://quizapp.jotamario.lat/api/questions"
+
+image:
+  repository: juanparraiv/quiz-app-frontend
+  tag: "1.0.0"
+  pullPolicy: Always
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 25%
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+  
+
+#secretdocker:
+#  name: regcred-frontend

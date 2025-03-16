@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .Values.name }}
+  namespace: {{ .Values.namespace | default "quiz" }}
+  annotations:
+    alb.ingress.kubernetes.io/scheme: {{ .Values.annotations.scheme }}
+    alb.ingress.kubernetes.io/target-type: {{ .Values.annotations.targetType }}
+    alb.ingress.kubernetes.io/listen-ports: '{{ .Values.annotations.listenPorts }}'
+spec:
+  ingressClassName: {{ .Values.ingressClassName }}
+  rules:
+    - host: {{ .Values.host }}
+      http:
+        paths:
+          - path: {{ .Values.backend.path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.backend.serviceName }}
+                port:
+                  number: {{ .Values.backend.servicePort }}
+          - path: {{ .Values.frontend.path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.frontend.serviceName }}
+                port:
+                  number: {{ .Values.frontend.servicePort }}

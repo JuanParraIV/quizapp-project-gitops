@@ -1,0 +1,36 @@
+apiVersion: v1
+entries:
+  quizapp-backend:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-16T15:01:54.966410489-05:00"
+    description: A Helm chart for Kubernetes
+    digest: f4efbf5af2df69322645f65171fe338c43ab61f33a2ae2c66ebed1111f1b6c41
+    name: quizapp-backend
+    type: application
+    urls:
+    - charts/quizapp-backend-0.1.0.tgz
+    version: 0.1.0
+  quizapp-frontend:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-16T15:01:54.966803921-05:00"
+    description: A Helm chart for Kubernetes
+    digest: 62ac4ec9b373ef3efa9306020470c5201cd2543585e32bc8e01ad2962e2a3758
+    name: quizapp-frontend
+    type: application
+    urls:
+    - charts/quizapp-frontend-0.1.0.tgz
+    version: 0.1.0
+  quizapp-ingress:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-16T15:01:54.967111025-05:00"
+    description: A Helm chart for Kubernetes
+    digest: bdedcfb7d8c02b494b44e4864c0f5a81bca60ffaf306758e769400496c028621
+    name: quizapp-ingress
+    type: application
+    urls:
+    - charts/quizapp-ingress-0.1.0.tgz
+    version: 0.1.0
+generated: "2025-03-16T15:01:54.965658688-05:00"
