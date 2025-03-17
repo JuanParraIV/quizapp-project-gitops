@@ -1,6 +1,6 @@
 # QuizApp Helm Charts
 
-This repository contains Helm charts for deploying the QuizApp. The charts are hosted on GitHub Pages at [quizapp-charts.jotamario.lat](https://quizapp-charts.jotamario.lat).
+This repository contains Helm charts for deploying the QuizApp. The charts are hosted on GitHub Pages at [ quizapp.charts.jotamario.lat/ ](https:// quizapp.charts.jotamario.lat).
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ This repository contains Helm charts for deploying the QuizApp. The charts are h
 
 To install the chart with the release name `my-release`:
 ```bash
-helm repo add quizapp https://quizapp-charts.jotamario.lat
+helm repo add quizapp https://quizapp.charts.jotamario.lat
 helm repo update
 helm install my-release quizapp/quizapp-backend
 helm install my-release quizapp/quizapp-frontend
